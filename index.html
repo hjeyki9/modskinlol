@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vượt Link Tải Mod Skin — Cảm Ơn Bạn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --card: rgba(255, 255, 255, 0.04);
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #e8ecf5;
+    --muted: #8b96ad;
+    --accent: #7c5cff;
+    --accent-2: #22d3ee;
+    --accent-3: #f472b6;
+    --success: #22c55e;
+    --warn: #f59e0b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { min-height: 100%; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(900px 600px at 10% -10%, rgba(124, 92, 255, 0.22), transparent 60%),
+      radial-gradient(800px 600px at 90% 10%, rgba(34, 211, 238, 0.18), transparent 60%),
+      radial-gradient(700px 500px at 50% 100%, rgba(244, 114, 182, 0.14), transparent 60%);
+    z-index: -2;
+    animation: bgShift 18s ease-in-out infinite alternate;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  @keyframes bgShift {
+    0%   { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.08) translate(-1%, 1%); }
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: #fbbf24;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-bottom: 20px;
+  }
+
+  .badge .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--warn);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.6);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.6); }
+    70%  { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+  }
+
+  h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    background: linear-gradient(135deg, #ffffff 0%, #c7d0e6 60%, #8b96ad 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    font-size: clamp(14px, 2vw, 16px);
+    color: var(--muted);
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  /* Card */
+  .card {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    animation: fadeUp 0.7s ease both;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  }
+
+  .card + .card { margin-top: 22px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .card:nth-of-type(2) { animation-delay: 0.1s; }
+  .card:nth-of-type(3) { animation-delay: 0.2s; }
+
+  .card-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 20px;
+  }
+
+  .icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, rgba(124, 92, 255, 0.2), rgba(34, 211, 238, 0.15));
+    border: 1px solid rgba(124, 92, 255, 0.25);
+    flex-shrink: 0;
+  }
+
+  .icon-wrap svg { width: 20px; height: 20px; }
+
+  /* Countdown / step state */
+  .step-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding: 8px 0;
+  }
+
+  .countdown-ring {
+    position: relative;
+    width: 130px;
+    height: 130px;
+  }
+
+  .countdown-ring svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  .countdown-ring circle {
+    fill: none;
+    stroke-width: 8;
+    stroke-linecap: round;
+  }
+
+  .ring-bg { stroke: rgba(255, 255, 255, 0.08); }
+  .ring-fg {
+    stroke: url(#ringGrad);
+    stroke-dasharray: 339.292;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s linear;
+  }
+
+  .countdown-number {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 40px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff, #b8a8ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+  }
+
+  .countdown-text {
+    font-size: 14.5px;
+    color: var(--muted);
+    max-width: 380px;
+  }
+
+  .countdown-text strong { color: var(--text); }
+
+  /* Big action button */
+  .bypass-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 20px 24px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--accent) 0%, #5b46e5 50%, #4a37d8 100%);
+    color: #fff;
+    font-weight: 800;
+    font-size: 17px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 12px 40px rgba(124, 92, 255, 0.45), inset 0 1px 0 rgba(255,255,255,0.22);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .bypass-btn.show { display: inline-flex; }
+
+  .bypass-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .bypass-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 50px rgba(124, 92, 255, 0.6), inset 0 1px 0 rgba(255,255,255,0.28);
+  }
+
+  .bypass-btn:hover::after { left: 100%; }
+  .bypass-btn:active { transform: translateY(0); }
+  .bypass-btn svg { width: 22px; height: 22px; }
+
+  /* Success state */
+  .success-state {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    animation: fadeUp 0.6s ease both;
+    padding: 8px 0;
+  }
+
+  .success-state.show { display: flex; }
+
+  .success-icon {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.06), 0 8px 24px rgba(34, 197, 94, 0.2);
+  }
+
+  .success-icon svg {
+    width: 38px;
+    height: 38px;
+    color: var(--success);
+    stroke: var(--success);
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .success-title {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    color: var(--text);
+  }
+
+  .success-desc {
+    font-size: 14.5px;
+    color: var(--muted);
+    max-width: 420px;
+  }
+
+  .success-desc strong { color: var(--accent-3); }
+
+  .reopen-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--accent-2);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: rgba(34, 211, 238, 0.08);
+    border: 1px solid rgba(34, 211, 238, 0.22);
+    transition: all 0.2s ease;
+    margin-top: 6px;
+  }
+
+  .reopen-link:hover {
+    background: rgba(34, 211, 238, 0.15);
+    border-color: rgba(34, 211, 238, 0.4);
+  }
+
+  /* Thank you note */
+  .thankyou {
+    display: flex;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.08), rgba(124, 92, 255, 0.08));
+    border: 1px solid rgba(244, 114, 182, 0.22);
+    font-size: 14px;
+    color: #e8ecf5;
+    margin-top: 20px;
+    line-height: 1.6;
+  }
+
+  .thankyou .emoji { font-size: 22px; line-height: 1; flex-shrink: 0; }
+
+  .thankyou strong { color: var(--accent-3); }
+
+  /* YouTube */
+  .yt-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+    padding: 18px 24px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+    transition: all 0.25s ease;
+  }
+
+  .yt-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(255, 0, 0, 0.45), inset 0 1px 0 rgba(255,255,255,0.25);
+  }
+
+  .yt-btn:active { transform: translateY(0); }
+  .yt-btn svg { width: 24px; height: 24px; }
+
+  .yt-channel {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+
+  .yt-channel strong { color: #ff6b6b; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    margin-top: 44px;
+    font-size: 13px;
+    color: var(--muted);
+    animation: fadeUp 0.7s ease 0.3s both;
+  }
+
+  footer .heart { color: var(--accent-3); }
+
+  @media (max-width: 640px) {
+    .container { padding: 32px 16px 60px; }
+    .card { padding: 24px 20px; }
+    .card-title { font-size: 17px; }
+    .bypass-btn, .yt-btn { font-size: 15px; padding: 16px 20px; }
+    .countdown-ring { width: 110px; height: 110px; }
+    .countdown-number { font-size: 34px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="badge">
+        <span class="dot"></span>
+        <span>Bước cuối cùng để tải mod skin</span>
+      </div>
+      <h1>Hoàn Thành Bước Vượt Link</h1>
+      <p class="subtitle">
+        Chỉ một cú nhấp nữa thôi là bạn sẽ đến được link tải xuống. Cùng ủng hộ mình nhé!
+      </p>
+    </header>
+
+    <!-- Bypass step -->
+    <section class="card">
+      <div class="card-title">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="24" y2="24">
+                <stop offset="0%" stop-color="#7c5cff"/>
+                <stop offset="100%" stop-color="#22d3ee"/>
+              </linearGradient>
+            </defs>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+        </div>
+        <span>Bước vượt link</span>
+      </div>
+
+      <!-- Countdown state -->
+      <div class="step-state" id="countdownState">
+        <div class="countdown-ring">
+          <svg viewBox="0 0 120 120">
+            <defs>
+              <linearGradient id="ringGrad" x1="0" y1="0" x2="120" y2="120">
+                <stop offset="0%" stop-color="#7c5cff"/>
+                <stop offset="100%" stop-color="#22d3ee"/>
+              </linearGradient>
+            </defs>
+            <circle class="ring-bg" cx="60" cy="60" r="54"/>
+            <circle class="ring-fg" cx="60" cy="60" r="54" id="ringFg"/>
+          </svg>
+          <div class="countdown-number" id="countdownNumber">10</div>
+        </div>
+        <p class="countdown-text">
+          Vui lòng chờ <strong id="countdownLabel">10 giây</strong> để mình chuẩn bị link tải cho bạn...
+        </p>
+        <a class="bypass-btn" id="bypassBtn" href="https://link4m.net/eOLkO7V" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          VƯỢT LINK ĐỂ TẢI XUỐNG
+        </a>
+      </div>
+
+      <!-- Success state -->
+      <div class="success-state" id="successState">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="success-title">Đã Mở Link Vượt Thành Công!</div>
+        <p class="success-desc">
+          Cảm ơn bạn đã ủng hộ 💜. Hãy hoàn tất các bước bên trang <strong>link4m.net</strong> để nhận link tải xuống.
+        </p>
+        <a class="reopen-link" href="https://link4m.net/eOLkO7V" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          Mở lại link vượt
+        </a>
+      </div>
+
+      <!-- Thank you note (always visible) -->
+      <div class="thankyou">
+        <span class="emoji">💜</span>
+        <span>
+          <strong>Cảm ơn bạn đã ủng hộ!</strong> Mỗi lượt vượt link của các bạn là động lực để mình tiếp tục cập nhật thêm nhiều bản mod skin chất lượng hơn. Yêu thương! ✨
+        </span>
+      </div>
+    </section>
+
+    <!-- YouTube -->
+    <section class="card">
+      <div class="card-title">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="color:#ff3d3d">
+            <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/>
+          </svg>
+        </div>
+        <span>Theo Dõi Kênh YouTube</span>
+      </div>
+
+      <a class="yt-btn" href="https://www.youtube.com/@daxuamodskin" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/>
+        </svg>
+        THEO DÕI @daxuamodskin
+      </a>
+
+      <div class="yt-channel">
+        Nhấn theo dõi để nhận <strong>thông báo mới nhất</strong> về các bản mod skin sắp ra mắt 🚀
+      </div>
+    </section>
+
+    <footer>
+      Made with <span class="heart">♥</span> — Cảm ơn bạn rất nhiều!
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      const TOTAL = 10;
+      const CIRCUMFERENCE = 2 * Math.PI * 54; // ~339.29
+
+      const ringFg = document.getElementById('ringFg');
+      const numberEl = document.getElementById('countdownNumber');
+      const labelEl = document.getElementById('countdownLabel');
+      const bypassBtn = document.getElementById('bypassBtn');
+      const countdownState = document.getElementById('countdownState');
+      const successState = document.getElementById('successState');
+
+      ringFg.style.strokeDasharray = CIRCUMFERENCE;
+      ringFg.style.strokeDashoffset = '0';
+
+      let remaining = TOTAL;
+      let timer = null;
+
+      function tick() {
+        remaining--;
+        numberEl.textContent = remaining;
+        labelEl.textContent = remaining + ' giây';
+        const offset = CIRCUMFERENCE * (1 - remaining / TOTAL);
+        ringFg.style.strokeDashoffset = offset;
+
+        if (remaining <= 0) {
+          clearInterval(timer);
+          ringFg.style.strokeDashoffset = CIRCUMFERENCE;
+          setTimeout(revealButton, 200);
+        }
+      }
+
+      function revealButton() {
+        // hide countdown visuals, show big button in center
+        countdownState.querySelector('.countdown-ring').style.display = 'none';
+        countdownState.querySelector('.countdown-text').innerHTML =
+          '<strong>Link đã sẵn sàng!</strong> Nhấn nút bên dưới để mở trang vượt link.';
+        bypassBtn.classList.add('show');
+      }
+
+      timer = setInterval(tick, 1000);
+
+      bypassBtn.addEventListener('click', function () {
+        // Switch UI to success state shortly after opening
+        setTimeout(function () {
+          countdownState.style.display = 'none';
+          successState.classList.add('show');
+        }, 400);
+      });
+    })();
+  </script>
+</body>
+</html>
