@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mod Skin Liên Minh — Tải & Hướng Dẫn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --bg-2: #0f1524;
+    --card: rgba(255, 255, 255, 0.04);
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #e8ecf5;
+    --muted: #8b96ad;
+    --accent: #7c5cff;
+    --accent-2: #22d3ee;
+    --accent-3: #f472b6;
+    --success: #22c55e;
+    --warn: #f59e0b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Animated background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(900px 600px at 10% -10%, rgba(124, 92, 255, 0.22), transparent 60%),
+      radial-gradient(800px 600px at 90% 10%, rgba(34, 211, 238, 0.18), transparent 60%),
+      radial-gradient(700px 500px at 50% 100%, rgba(244, 114, 182, 0.14), transparent 60%);
+    z-index: -2;
+    animation: bgShift 18s ease-in-out infinite alternate;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  @keyframes bgShift {
+    0%   { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.08) translate(-1%, 1%); }
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    margin-bottom: 48px;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(124, 92, 255, 0.12);
+    border: 1px solid rgba(124, 92, 255, 0.3);
+    color: #b8a8ff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-bottom: 20px;
+  }
+
+  .badge .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+    70%  { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+  }
+
+  h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #ffffff 0%, #c7d0e6 60%, #8b96ad 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subtitle {
+    font-size: clamp(15px, 2vw, 17px);
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* Card */
+  .card {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    animation: fadeUp 0.7s ease both;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  }
+
+  .card + .card { margin-top: 24px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .card:nth-child(2) { animation-delay: 0.1s; }
+  .card:nth-child(3) { animation-delay: 0.2s; }
+
+  .card-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 20px;
+  }
+
+  .icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, rgba(124, 92, 255, 0.2), rgba(34, 211, 238, 0.15));
+    border: 1px solid rgba(124, 92, 255, 0.25);
+    flex-shrink: 0;
+  }
+
+  .icon-wrap svg { width: 20px; height: 20px; }
+
+  /* Download button */
+  .download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 18px 24px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--accent) 0%, #5b46e5 50%, #4a37d8 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(124, 92, 255, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .download-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(124, 92, 255, 0.55), inset 0 1px 0 rgba(255,255,255,0.25);
+  }
+
+  .download-btn:hover::after { left: 100%; }
+
+  .download-btn:active { transform: translateY(0); }
+
+  .download-btn svg { width: 20px; height: 20px; }
+
+  .link-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 12.5px;
+    color: var(--muted);
+    word-break: break-all;
+  }
+
+  .link-note code {
+    font-family: ui-monospace, monospace;
+    color: #b8a8ff;
+    background: rgba(124, 92, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(124, 92, 255, 0.2);
+  }
+
+  /* Steps */
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+
+  .step {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.25s ease;
+  }
+
+  .step:hover {
+    background: rgba(255, 255, 255, 0.045);
+    border-color: rgba(124, 92, 255, 0.3);
+    transform: translateX(4px);
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 14px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(124, 92, 255, 0.35);
+  }
+
+  .step-content { flex: 1; }
+  .step-title { font-weight: 600; color: var(--text); margin-bottom: 4px; font-size: 15px; }
+  .step-desc { font-size: 14px; color: var(--muted); }
+
+  .step-desc code {
+    font-family: ui-monospace, monospace;
+    color: #7dd3fc;
+    background: rgba(34, 211, 238, 0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(34, 211, 238, 0.2);
+  }
+
+  .note {
+    display: flex;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    font-size: 13.5px;
+    color: #fbbf24;
+    margin-top: 8px;
+  }
+
+  .note svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
+
+  /* YouTube */
+  .yt-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+    padding: 18px 24px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+    transition: all 0.25s ease;
+  }
+
+  .yt-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(255, 0, 0, 0.45), inset 0 1px 0 rgba(255,255,255,0.25);
+  }
+
+  .yt-btn:active { transform: translateY(0); }
+
+  .yt-btn svg { width: 24px; height: 24px; }
+
+  .yt-channel {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+
+  .yt-channel strong { color: #ff6b6b; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    margin-top: 56px;
+    font-size: 13px;
+    color: var(--muted);
+    animation: fadeUp 0.7s ease 0.3s both;
+  }
+
+  footer .heart { color: var(--accent-3); }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .container { padding: 32px 16px 60px; }
+    .card { padding: 24px 20px; }
+    .card-title { font-size: 17px; }
+    .download-btn, .yt-btn { font-size: 15px; padding: 16px 20px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="badge">
+        <span class="dot"></span>
+        <span>Đã cập nhật phiên bản mới nhất</span>
+      </div>
+      <h1>Mod Skin Liên Minh Huyền Thoại</h1>
+      <p class="subtitle">
+        Trải nghiệm skin mới nhất, độc quyền ngay trong trận đấu.
+        Tải về, chạy và tận hưởng chỉ trong vài giây.
+      </p>
+    </header>
+
+    <!-- Download Card -->
+    <section class="card">
+      <div class="card-title">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#g1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="24" y2="24">
+                <stop offset="0%" stop-color="#7c5cff"/>
+                <stop offset="100%" stop-color="#22d3ee"/>
+              </linearGradient>
+            </defs>
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </div>
+        <span>Tải Mod Skin</span>
+      </div>
+
+      <a class="download-btn" href="https://zufile.com/f/7T3NgJMHvW" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        TẢI XUỐNG NGAY
+      </a>
+
+      <div class="link-note">
+        <span>🔗</span>
+        <code>zufile.com/f/7T3NgJMHvW</code>
+      </div>
+    </section>
+
+    <!-- Instructions Card -->
+    <section class="card">
+      <div class="card-title">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="url(#g2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="g2" x1="0" y1="0" x2="24" y2="24">
+                <stop offset="0%" stop-color="#7c5cff"/>
+                <stop offset="100%" stop-color="#22d3ee"/>
+              </linearGradient>
+            </defs>
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="9" y1="13" x2="15" y2="13"/>
+            <line x1="9" y1="17" x2="13" y2="17"/>
+          </svg>
+        </div>
+        <span>Hướng Dẫn Sử Dụng</span>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Tải file mod skin về máy</div>
+            <div class="step-desc">Nhấn nút tải xuống phía trên và lưu file về máy tính.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Chạy file <code>.exe</code></div>
+            <div class="step-desc">Mở file vừa tải — <strong>nhớ chạy trước khi vào trận đấu Liên Minh</strong>.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Nhấn <code>START</code> và tận hưởng</div>
+            <div class="step-desc">Một cửa sổ hiện lên, bấm nút <strong>START</strong>. Vào trận và chiêm ngưỡng skin mới!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <span>Nếu lần đầu chưa mod được, hãy <strong>thoát trận</strong> rồi bấm <strong>STOP</strong> và <strong>START</strong> lại.</span>
+      </div>
+    </section>
+
+    <!-- YouTube Card -->
+    <section class="card">
+      <div class="card-title">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="color:#ff3d3d">
+            <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/>
+          </svg>
+        </div>
+        <span>Cập Nhật Mới Nhất</span>
+      </div>
+
+      <a class="yt-btn" href="https://www.youtube.com/@daxuamodskin" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/>
+        </svg>
+        TRUY CẬP KÊNH YOUTUBE
+      </a>
+
+      <div class="yt-channel">
+        Nhấn theo dõi <strong>@daxuamodskin</strong> để nhận thông báo về các bản mod skin mới nhất 🚀
+      </div>
+    </section>
+
+    <footer>
+      Made with <span class="heart">♥</span> — Chúc bạn có những trận đấu tuyệt vời!
+    </footer>
+
+  </div>
+</body>
+</html>
